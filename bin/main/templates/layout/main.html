@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}">
+
+<title>School Club</title>
+</head>
+<body>
+
+
+	<div th:replace="layout/_header :: header">Header Menu</div>
+
+	<div class="container">
+	<div layout:fragment="content">
+		<!-- page content goes here -->
+	</div>
+	</div>
+
+	<div th:replace="layout/_footer :: footer">Footer Menu</div>
+
+	<script type="text/javascript" src="/js/jquery-3.3.1.min.js" th:href="@{/js/jquery-3.3.1.min.js}"></script>
+	<script type="text/javascript" src="/js/popper.min.js" th:href="@{/js/popper.min.js}"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js" th:href="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

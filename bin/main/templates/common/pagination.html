@@ -1,0 +1,141 @@
+<div th:fragment='mypagination'>
+
+	<!--
+
+	<nav aria-label="userlist">
+
+    <ul class="pagination">
+        <li class="page-item" th:class="${page.first} ? 'disabled':''" style="display:inline">
+            <span class="page-link" th:if="${page.first}">First</span>
+            <a class="page-link"  th:if="${not page.first}" th:href="@{${url}(page=0)}">First</a>
+        </li>
+        <li class="page-item" th:each='i : ${#numbers.sequence(0, page.totalPages-1)}' th:class="(${i}==${page.number})? 'page-item active' : ''" style="display:inline">
+            <span th:if='${i}==${page.number}' th:text='${i+1}'>1</span>
+            <a class="page-link" th:if='${i}!=${page.number}' th:href="@{'/users'(page=${i})}">
+                <span class="page-link" th:text='${i+1}'>1</span>
+            </a>
+        </li>
+        <li class="page-item" th:class="${page.last} ? 'disabled':''" style="display:inline">
+            <span class="page-link" th:if="${page.last}">Last</span>
+            <a class="page-link" th:if="${not page.last}" th:href="@{${url}(page=(${page.totalPages}-1))}">Last</a>
+        </li>
+    </ul>
+    </nav>
+      -->
+	<!-- 
+	<nav aria-label="Userlist">
+		<ul class="pagination justify-content-center">
+		
+			<li th:class="${page.isFirstPage()} ? 'page-item disabled':'page-item'">
+			<span class="page-link" th:if="${page.isFirstPage()}">First</span>
+			<a class="page-link" th:if="${not page.isFirstPage()}" th:href="@{${page.getUrl(),size=${page.getSize()}}(page=0)}">First</a>
+			</li>
+			
+			<li th:class="${page.isHasPreviousPage()}? 'page-item' : 'page-item disabled'">
+              <span class="page-link" th:if='${not page.isHasPreviousPage()}'>Previous</span>
+              <a class="page-link" th:if='${page.isHasPreviousPage()}' th:href='@{${page.getUrl()}(page=${page.getNumber()-2},size=${page.getSize()})}'>Previous</a>
+          </li>
+			
+			
+			<li th:each='item : ${page.getItems()}' th:class="(${item.isCurrent()})? 'page-item active' : 'page-item'">
+			<span class="page-link" th:if='${item.isCurrent()}' th:text='${item.getNumber()}'>1</span>
+            <a class="page-link" th:if='${not item.isCurrent()}' th:href="@{${page.getUrl()}(page=${item.getNumber()-1},size=${page.getSize()})}">
+                <span th:text='${item.getNumber()}'>1</span>
+            </a>
+			</li>
+			
+			<li th:class="${page.isHasNextPage()}? 'page-item' : 'page-item disabled'">
+              <span class="page-link" th:if='${not page.isHasNextPage()}'>Next</span>
+              <a class="page-link" th:if='${page.isHasNextPage()}' th:href='@{${page.getUrl()}(page=${page.getNumber()},size=${page.getSize()})}'>Next</a>
+          </li>
+			
+			<li th:class="${page.isLastPage()} ? 'page-item disabled':'page-item'">
+			<span class="page-link" th:if="${page.isLastPage()}">Last</span>
+            <a class="page-link" th:if="${not page.isLastPage()}" th:href="@{${page.getUrl()}(page=(${page.getTotalPages()}-1))}">Last</a>
+			</li>
+		</ul>
+	</nav>
+-->
+<!-- 
+	<nav aria-label="Userlist">
+		<ul class="pagination justify-content-center">
+
+			<li
+				th:class="${page.isFirstPage()} ? 'page-item disabled':'page-item'">
+				<span class="page-link" th:if="${page.isFirstPage()}">First</span> <a
+				class="page-link" th:if="${not page.isFirstPage()}"
+				th:href="@{${page.getUrl()}(page=0,size=${page.getSize()})}">First</a>
+			</li>
+
+			<li
+				th:class="${page.isHasPreviousPage()}? 'page-item' : 'page-item disabled'">
+				<span class="page-link" th:if='${not page.isHasPreviousPage()}'>Previous</span>
+				<a class="page-link" th:if='${page.isHasPreviousPage()}'
+				th:href='@{${page.getUrl()}(page=${page.getNumber()-2},size=${page.getSize()})}'>Previous</a>
+			</li>
+
+
+			<li th:each='item : ${page.getItems()}'
+				th:class="(${item.isCurrent()})? 'page-item active' : 'page-item'">
+				<span class="page-link" th:if='${item.isCurrent()}'
+				th:text='${item.getNumber()}'>1</span> <a class="page-link"
+				th:if='${not item.isCurrent()}'
+				th:href="@{${page.getUrl()}(page=${item.getNumber()-1},size=${page.getSize()})}"> <span
+					th:text='${item.getNumber()}'>1</span>
+			</a>
+			</li>
+
+			<li
+				th:class="${page.isHasNextPage()}? 'page-item' : 'page-item disabled'">
+				<span class="page-link" th:if='${not page.isHasNextPage()}'>Next</span>
+				<a class="page-link" th:if='${page.isHasNextPage()}'
+				th:href='@{${page.getUrl()}(page=${page.getNumber(),size=${page.getSize()})}'>Next</a>
+			</li>
+
+			<li
+				th:class="${page.isLastPage()} ? 'page-item disabled':'page-item'">
+				<span class="page-link" th:if="${page.isLastPage()}">Last</span> <a
+				class="page-link" th:if="${not page.isLastPage()}"
+				th:href="@{${page.getUrl()}(page=(${page.getTotalPages()-1},size=${page.getSize()})}">Last</a>
+			</li>
+		</ul>
+	</nav>
+-->
+<nav aria-label="Userlist">
+<ul class='pagination justify-content-center'> <!-- start pageination -->
+			<!-- first -->
+          <li th:class="${page.firstPage}?'page-item disabled':'page-item'">
+              <span class="page-link" th:if='${page.firstPage}'>First</span>
+              <a class="page-link" th:if='${not page.firstPage}' th:href='@{${page.url}(page=0,size=${page.size})}'>First</a>
+          </li>
+          <!-- first -->
+           <!-- previous -->
+          <li th:class="${page.hasPreviousPage}? 'page-item' : 'page-item disabled'" style="display:inline">
+              <span class="page-link" th:if='${not page.hasPreviousPage}'>Previous</span>
+              <a class="page-link" th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}'>Previous</a>
+          </li>
+			<!-- previous -->
+			<!-- number page -->
+          <li th:each='item : ${page.items}' th:class="${item.current}? 'page-item active' : 'page-item'" style="display:inline">
+              <span class="page-link" th:if='${item.current}' th:text='${item.number}'>1</span>
+              <a class="page-link" th:if='${not item.current}' th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'>
+              <span th:text='${item.number}'>1</span>
+              </a>
+          </li>
+          <!-- number page -->
+          <!-- next -->
+          <li th:class="${page.hasNextPage}? 'page-item' : 'page-item disabled'" style="display:inline">
+              <span class="page-link" th:if='${not page.hasNextPage}'>Next</span>
+              <a class="page-link" th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}'>Next</a>
+          </li>
+          <!-- next -->
+          <!-- last -->
+          <li th:class="${page.lastPage}? 'page-item disabled' : 'page-item'" style="display:inline">
+              <span class="page-link" th:if='${page.lastPage}'>Last</span>
+              <a class="page-link" th:if='${not page.lastPage}' th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last</a>
+          </li>
+          <!-- last -->
+      </ul>
+</nav> <!-- end pageination -->
+
+</div>

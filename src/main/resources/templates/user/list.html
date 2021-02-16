@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/main}">
+<head>
+<title>School Club : User list</title>
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<h1>User list</h1>
+
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">E-mail</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.getId()}"></td>
+					<td th:text="${user.getEmail()}"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<div th:include="common/pagination :: mypagination"></div>
+
+
+
+	</div>
+</body>
+</html>

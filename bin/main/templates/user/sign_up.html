@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/main}">
+<head>
+<title>School Club : Sign in</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="card mt-3 mx-auto" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">Sign Up</h5>
+				<form th:action="@{/user/add}" th:object="${userAddForm}"
+					method="post">
+					<!-- form -->
+					<!-- email -->
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+						<label for="email">Email Address</label> <input type="email"
+							class="form-control" id="email" th:field="*{email}"
+							aria-describedby="emailHelp" placeholder="example@mail.com"
+							required>
+					</div>
+					<span th:if="*{#fields.hasErrors('email')}" th:errors="*{email}"
+						class="help-block">error!</span>
+					<!-- email -->
+					<!-- psw -->
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('password')}? 'has-error'">
+						<label for="password">Password</label> <input type="password"
+							class="form-control" id="password" th:field="*{password}"
+							required>
+					</div>
+					<span th:if="*{#fields.hasErrors('password')}"
+						th:errors="*{password}" class="help-block">error!</span>
+					<!-- psw -->
+					<button type="submit" class="btn btn-primary">Sign Up</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
